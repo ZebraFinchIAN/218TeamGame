@@ -283,5 +283,5 @@ public class Board implements ActionListener {
         frame.add(panel);
     }
 }
-// With the help of Javatpoint's source code we generated this game!
-//https://www.javatpoint.com/Puzzle-Game
+// With the help of AhsanRiaz9's source code we generated this game!
+
