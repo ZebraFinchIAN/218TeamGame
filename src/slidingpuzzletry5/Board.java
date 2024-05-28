@@ -1,4 +1,4 @@
-package slidingpuzzletry5;
+package slidingpuzzletry5; 
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
 
 public class Board implements ActionListener {
     JFrame fr;
@@ -28,9 +27,7 @@ public class Board implements ActionListener {
         board = new int[rows][cols];
         initGUI();
         loadErrorSound();
-        
     }
-
 
     public void initGUI() {
         fr = new JFrame("Sliding Puzzle Game");
@@ -80,7 +77,6 @@ public class Board implements ActionListener {
 
         fr.add(mainPanel);
         fr.setVisible(true);
-    
     }
 
     private void loadErrorSound() {
@@ -228,12 +224,15 @@ public class Board implements ActionListener {
                 welcomeFrame.dispose();
                 new Board("mlisa", 3, 3); // 3x3 grid
             });
+            
 
             JButton buttonC = new JButton("Puzzle Number (Hard 4x4)");
             buttonC.addActionListener(e -> {
                 welcomeFrame.dispose();
-                new Board("backup pics 2", 4, 4); // 4x4 grid
+                showColorSelection(); // Show the color selection frame for 4x4 hard puzzles
             });
+
+           
 
             JButton buttonD = new JButton("Puzzle Image (Hard 4x4)");
             buttonD.addActionListener(e -> {
@@ -248,11 +247,37 @@ public class Board implements ActionListener {
             welcomeFrame.add(buttonB);
             welcomeFrame.add(buttonC);
             welcomeFrame.add(buttonD);
+          
             welcomeFrame.add(creditsButton);
 
             welcomeFrame.setLocationRelativeTo(null);
             welcomeFrame.setVisible(true);
         });
+    }
+
+    private static void showColorSelection() {
+        JFrame colorFrame = new JFrame("Choose Puzzle Color");
+        colorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        colorFrame.setSize(300, 200);
+        colorFrame.setLayout(new GridLayout(2, 1));
+
+        JButton redButton = new JButton("Red Numbers");
+        redButton.addActionListener(e -> {
+            colorFrame.dispose();
+            new Board("backup pics 2", 4, 4); // Load red number puzzle
+        });
+
+        JButton blueButton = new JButton("Blue Numbers");
+        blueButton.addActionListener(e -> {
+            colorFrame.dispose();
+            new Board("Requested Img", 4, 4); // Load blue number puzzle
+        });
+
+        colorFrame.add(redButton);
+        colorFrame.add(blueButton);
+
+        colorFrame.setLocationRelativeTo(null);
+        colorFrame.setVisible(true);
     }
 
     private static void displayCredits() {
@@ -284,4 +309,4 @@ public class Board implements ActionListener {
     }
 }
 // With the help of AhsanRiaz9's source code we generated this game!
-
+//<a href="https://www.flaticon.com/free-icons/number-12" title="number 12 icons">Number 12 icons created by Md Tanvirul Haque - Flaticon</a>
